@@ -46,7 +46,7 @@ alias sudo='sudo '
 alias week='date +%V'
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup;'
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -69,10 +69,6 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "${method}"="lwp-request -m '${method}'"
 done
 
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
 
@@ -84,28 +80,6 @@ alias path='echo -e ${PATH//:/\\n}'
 ##################
 # Source .zshrc, which updates all other commands
 alias s="source ~/.zshrc"
-
-# npm run aliases
-alias run="npm run"
-alias rd="npm run dev"
-alias rs="npm run server"
-alias rt="npm run test"
-alias rw="npm run test:watch"
-
-# Aliases for globally installed npm modules
-alias t=trash
-alias ncu="npm-check -u"
-alias svgop="svgo --pretty --disable=mergePaths,convertShapeToPath --multipass"
-alias svgor="svgop --recursive"
-
-# Aliases for np
-alias pub="np"
-alias patch="np patch"
-alias minor="np minor"
-alias major="np major"
-
-# Gulp aliases
-alias gulp='npx gulp'
 
 # Check opened TCP Ports
 alias openedports="sudo netstat -plunt"

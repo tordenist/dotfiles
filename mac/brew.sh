@@ -2,6 +2,7 @@
 
 # Install Homebrew (if not installed)
 echo "Installing Homebrew."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -11,12 +12,6 @@ brew upgrade
 
 # Save Homebrew’s installed location.
 BREW_PREFIX=$(brew --prefix)
-
-# Install and setup Mongodb
-brew tap mongodb/brew
-brew install mongodb-community
-sudo mkdir -p /System/Volumes/Data/data/db
-sudo chown -R `id -un` /System/Volumes/Data/data/db
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -53,34 +48,57 @@ brew install rename
 brew install ssh-copy-id
 brew install tree
 brew install vbindiff
-brew install youtube-dl
 
 # Installs Casks
 brew tap caskroom/cask
 
 ## Apps I use
-brew cask install 1password
+brew cask install bitwarden
 brew cask install alfred
-brew cask install beamer
-brew cask install dash
-brew cask install dropbox
-brew cask install homebrew/cask-versions/firefox-nightly # Nightly
-brew cask install google-chrome #Chrome
-brew cask install homebrew/cask-versions/google-chrome-canary # Chrome Canary
+brew cask install firefox
+brew cask install google-chrome
 brew cask install grammarly
 brew cask install iterm2
 brew cask install kap
 brew cask install keycastr
-brew cask install mongodb-compass
-brew cask install notion
-brew cask install sketch
-brew cask install skitch
 brew cask install skype
 brew cask install slack
 brew cask install spotify
-brew cask install textexpander
 brew cask install tower
-brew cask install wechat
+brew cask install atom
+
+## iterm2 theme
+brew install romkatv/powerlevel10k/powerlevel10k
+echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
 
 # Remove outdated versions from the cellar.
 brew cleanup
+
+# Atom plugins
+apm install atom-gpg
+apm install busy-signal
+apm install hyperlink-hyperclick
+apm install ide-yaml
+apm install language-groovy
+apm install linter-terraform-syntax
+apm install advanced-open-file
+apm install atom-ide-ui
+apm install docker
+apm install ide-go
+apm install intentions
+apm install language-terraform
+apm install linter-ui-default
+apm install atom-beautify
+apm install atomenv
+apm install file-icons
+apm install ide-json
+apm install language-docker
+apm install linter
+apm install markdown-pdf
+apm install atom-clock
+apm install auto-indent
+apm install go-plus
+apm install ide-python
+apm install language-gitignore
+apm install inter-packer-validate
+apm install terraform-fmt

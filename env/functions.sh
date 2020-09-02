@@ -79,24 +79,6 @@ function server() {
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
 }
 
-# Start a PHP server from a directory, optionally specifying the port
-# (Requires PHP 5.4.0+.)
-function phpserver() {
-	local port="${1:-4000}";
-	local ip=$(ipconfig getifaddr en1);
-	sleep 1 && open "http://${ip}:${port}/" &
-	php -S "${ip}:${port}";
-}
-
-# Compare original and gzipped file size
-function gz() {
-	local origsize=$(wc -c < "$1");
-	local gzipsize=$(gzip -c "$1" | wc -c);
-	local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l);
-	printf "orig: %d bytes\n" "$origsize";
-	printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
-}
-
 # Show all the names (CNs and SANs) listed in the SSL certificate
 # for a given domain
 function getcertnames() {

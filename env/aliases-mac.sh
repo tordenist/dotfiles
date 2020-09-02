@@ -1,18 +1,9 @@
 #!/bin/bash
 
-# For faster navigation
-alias ~="cd ~" # `cd` is probably faster to type though
-
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
+alias g="cd ~/Grimorium"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/projects"
-alias z="cd ~/projects/zellwk.com"
-
-# Google Chrome
-alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
-alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
 
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
@@ -26,11 +17,6 @@ command -v md5sum > /dev/null || alias md5sum="md5"
 
 # macOS has no `sha1sum`, so use `shasum` as a fallback
 command -v sha1sum > /dev/null || alias sha1sum="shasum"
-
-# JavaScriptCore REPL
-jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
-[ -e "${jscbin}" ] && alias jsc="${jscbin}";
-unset jscbin;
 
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
@@ -66,6 +52,7 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 # Disable Spotlight
 alias spotoff="sudo mdutil -a -i off"
+
 # Enable Spotlight
 alias spoton="sudo mdutil -a -i on"
 
@@ -99,8 +86,3 @@ function savebatt() {
   fkill Google Drive File Stream
   fkill Creative Cloud
 }
-
-# Aliases for MongoDB
-alias mongod='brew services run mongodb-community'
-alias mongod-status='brew services list'
-alias mongod-stop='brew services stop mongodb-community'
