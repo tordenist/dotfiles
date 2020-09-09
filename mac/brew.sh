@@ -20,52 +20,55 @@ ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 
 # Install some other useful utilities like `sponge`.
 brew install moreutils
+
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
-# Install GNU `sed` as gsed
-brew install gnu-sed
 
-# Install `wget` with IRI support.
-brew install wget --with-iri
-
-brew install gmp
+# Install base apps
 brew install grep
-brew install node
-
-# Install useful binaries.
 brew install ack
 brew install autojump
+brew install aws-cli
 brew install ffmpeg
 brew install git
 brew install git-lfs
 brew install github/gh/gh
 brew install imagemagick --with-webp
+brew install kubectl
+brew install menumeters
 brew install p7zip
+brew install packer
 brew install pigz
 brew install pv
 brew install rsync
 brew install rename
 brew install ssh-copy-id
+brew install terraform
 brew install tree
 brew install vbindiff
 
 # Installs Casks
 brew tap caskroom/cask
 
-## Apps I use
-brew cask install bitwarden
+## Cask Apps I use
 brew cask install alfred
+brew cask install atom
+brew cask install bitwarden
 brew cask install firefox
 brew cask install google-chrome
 brew cask install grammarly
 brew cask install iterm2
 brew cask install kap
 brew cask install keycastr
+brew cask install owasp-zap
 brew cask install skype
 brew cask install slack
 brew cask install spotify
 brew cask install tower
-brew cask install atom
+brew cask install vagrant
+brew cask install vagrant-manager
+brew cask install virtualbox
+
 
 ## iterm2 theme
 brew install romkatv/powerlevel10k/powerlevel10k
