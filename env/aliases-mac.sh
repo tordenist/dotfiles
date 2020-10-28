@@ -5,6 +5,10 @@ alias g="cd ~/Grimorium"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 
+# Hashicorp Utils
+alias tf="terraform"
+alias vgr="vagrant"
+
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
